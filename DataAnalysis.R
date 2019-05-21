@@ -103,3 +103,15 @@ womanbtman103106<-
   cbind.fill(womanbtman103[1],womanbtman104[1],womanbtman105[1],womanbtman106[1],fill=NA)
 
 
+cgsalary<-select(X106Monthly_average_salary,"大職業別","Y2017_大學-薪資","Y2017_研究所及以上-薪資")
+cgsalary$"Salary_diff"<-cgsalary$"Y2017_研究所及以上-薪資"/cgsalary$"Y2017_大學-薪資"
+cgsalary<-cgsalary[order(-cgsalary$Salary_diff),]
+knitr::kable(head(cgsalary,10))
+
+myint<-
+  X106Monthly_average_salary[X106Monthly_average_salary$"大職業別"%in% 
+                               c("資訊及通訊傳播業-專業人員","金融及保險業-技術員及助理專業人員","資訊及通訊傳播業-技術員及助理專業人員","資訊及通訊傳播業-事務支援人員"),]
+myint<-select(myint,"大職業別","Y2017_研究所及以上-薪資","Y2017_大學-薪資")
+myint$"研-大學"<-myint$"Y2017_研究所及以上-薪資"-myint$"Y2017_大學-薪資"
+myintdiff<-select(myint,"大職業別","研-大學")
+knitr::kable(myintdiff)
