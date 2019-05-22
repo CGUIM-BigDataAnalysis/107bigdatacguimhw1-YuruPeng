@@ -163,8 +163,10 @@ X104Monthly_average_salary[4:14]<-as.numeric(unlist(X104Monthly_average_salary[4
 X105Monthly_average_salary[4:14]<-as.numeric(unlist(X105Monthly_average_salary[4:14]))
 X106Monthly_average_salary[4:14]<-as.numeric(unlist(X106Monthly_average_salary[4:14]))
 
-colnames(x103Monthly_average_salary)[3:14] <- paste("Y2014", colnames(x103Monthly_average_salary[,c(3:14)]),sep = "_")
-colnames(X106Monthly_average_salary)[3:14] <- paste("Y2017", colnames(X106Monthly_average_salary[,c(3:14)]),sep = "_")
+colnames(x103Monthly_average_salary)[3:14] <- 
+  paste("Y2014", colnames(x103Monthly_average_salary[,c(3:14)]),sep = "_")
+colnames(X106Monthly_average_salary)[3:14] <- 
+  paste("Y2017", colnames(X106Monthly_average_salary[,c(3:14)]),sep = "_")
 
 New_Education_Salary<-
   full_join(x103Monthly_average_salary,X106Monthly_average_salary,by="大職業別")
@@ -207,6 +209,8 @@ knitr::kable(head(College_Salary_order,10))
 | 資訊及通訊傳播業-專業人員                 |       28839      |       31817      |  1.103263|
 | 不動產業-專業人員                         |       30637      |       33632      |  1.097758|
 | 教育服務業-事務支援人員                   |       22334      |       24471      |  1.095684|
+
+在106年度薪資較103年度薪資高的職業中，我認為是因為基本工資的調漲所以導致做出來的數據其實大都是有提高的趨勢，而前兩個高的職業，我認為有可能是因為時薪制的關係，做得越多其實就賺得比較多。
 
 ### 提高超過5%的的職業有哪些?
 
@@ -388,6 +392,8 @@ knitr::kable(head(womanbtman103106,10))
 | NA                                      | NA                                                  | NA                                          | 不動產業-服務及銷售工作人員                         |
 | NA                                      | NA                                                  | NA                                          | 不動產業-技藝\_機械設備操作及組裝人員               |
 | NA                                      | NA                                                  | NA                                          | 專業\_科學及技術服務業-技藝\_機械設備操作及組裝人員 |
+
+由第一張表格可以看的出來，男生薪資比女生多的職業大多都是需要體力的機器設備操作或組裝人員。由第二張表格來看，很明顯的看出其實近幾年來，女生在職場方面也有很大的進步，但和男生的薪資相比普遍還是比他們低。
 
 研究所薪資差異
 --------------
